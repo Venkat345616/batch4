@@ -1,9 +1,10 @@
 const express = require('express')
 const app = express()
-app.use(express.json())
+const dotenv = require('dotenv');
 const userRoute = require('./route/userRoute')
 const postRoute = require('./route/postRoute')
-
+dotenv.config();
+app.use(express.json())
 const PORT = 3000
 
 app.use("/users", userRoute)
