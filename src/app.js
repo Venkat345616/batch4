@@ -1,21 +1,23 @@
-const express = require('express')
-const app = express()
+const express = require('express');
 const dotenv = require('dotenv');
-const userRoute = require('./route/userRoute')
-const postRoute = require('./route/postRoute')
+const bodyParser = require('body-parser');
+const userRoutes = require('./route/userRoute');
+const postRoutes = require('./route/postRoute');
+const userAuthRoutes = require('./route/userAuth')
 dotenv.config();
-app.use(express.json())
-const PORT = 3000
-
-app.use("/users", userRoute)
-app.use("/posts", postRoute)
+const app = express();
+const port = 3000;
 
 
+app.use(bodyParser.json());
 
 
-app.listen(PORT, () => {
-    console.log(`server is running at http://localhost:${PORT}`)
-})
 
 
-module.exports = app;
+app.use("/users", userRoutes);
+app.use("/posts", postRoutes);
+app.use("/users/auth", userAuthRoutes);
+app.listen(port, () => {
+    console.log(`Server is running on http:localhost:${port}`);
+});
+module.exports = app;  
