@@ -18,6 +18,6 @@ app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 app.use("/users/auth", userAuthRoutes);
 app.listen(port, () => {
-    console.log(`Server is running on http:localhost:${port}`);
+    console.log(`Server is running on http://localhost:${port}`);
 });
 module.exports = app;  

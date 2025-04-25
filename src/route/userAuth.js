@@ -46,4 +46,4 @@ router.post('/login', validate(loginSchema), async (req, res) => {
 
     return sendResponse(res, 200, 'Login successful', { user: { id: user.id, email }, ...tokens });
 })
-module.exports = router
+module.exports = router 
